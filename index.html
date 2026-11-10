@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ShopKart - Final Project | Pragya Gupta</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="navbar">
+  <div class="logo">🛍️ Shop<span>Kart</span></div>
+  <nav id="navMenu">
+    <a href="#home">Home</a>
+    <a href="#shop">Shop</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+  </nav>
+  <button class="cart-btn" onclick="showCart()">🛒 Cart (<span id="cartCount">0</span>)</button>
+  <button class="menu-btn" onclick="toggleMenu()">☰</button>
+</header>
+
+<section id="home" class="hero">
+  <div>
+    <h1>Shop Smart, Live Better</h1>
+    <p>Best products at best prices. Fast delivery, easy returns.</p>
+    <a href="#shop" class="btn">Shop Now →</a>
+  </div>
+  <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=600" alt="Shopping" loading="lazy">
+</section>
+
+<section id="shop" class="shop">
+  <h2>Our Products</h2>
+  <div class="controls">
+    <input type="text" id="searchInput" placeholder="🔍 Search..." onkeyup="filterProducts()">
+    <select id="categoryFilter" onchange="filterProducts()">
+      <option value="all">All Categories</option>
+      <option value="electronics">Electronics</option>
+      <option value="fashion">Fashion</option>
+      <option value="home">Home</option>
+    </select>
+    <select id="sortFilter" onchange="filterProducts()">
+      <option value="default">Sort By</option>
+      <option value="low">Price: Low to High</option>
+      <option value="high">Price: High to Low</option>
+      <option value="rating">Top Rated</option>
+    </select>
+    <select id="priceFilter" onchange="filterProducts()">
+      <option value="all">All Prices</option>
+      <option value="500">Under ₹500</option>
+      <option value="1000">Under ₹1000</option>
+      <option value="5000">Under ₹5000</option>
+    </select>
+  </div>
+  <div id="productList" class="products"></div>
+</section>
+
+<div id="cartModal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeCart()">&times;</span>
+    <h2>Your Cart 🛒</h2>
+    <div id="cartItems"></div>
+    <h3 id="cartTotal">Total: ₹0</h3>
+    <input type="text" id="custName" placeholder="Your Name">
+    <input type="text" id="custPhone" placeholder="Phone Number">
+    <button class="btn" onclick="checkout()">Place Order ✅</button>
+    <button class="btn-outline" onclick="clearCart()">Clear Cart</button>
+    <p id="orderMsg" class="success"></p>
+  </div>
+</div>
+
+<section class="todo-section">
+  <h2>📝 My Shopping List</h2>
+  <div class="todo-box">
+    <input type="text" id="todoInput" placeholder="e.g. Buy headphones...">
+    <button class="btn" onclick="addTodo()">Add</button>
+  </div>
+  <ul id="todoList"></ul>
+</section>
+
+<section id="about" class="about">
+  <h2>About ShopKart</h2>
+  <p>Final Capstone Project - Task 5 by Pragya Gupta. Fast, Responsive, Cross-Browser Compatible Web App using HTML, CSS & JavaScript.</p>
+  <div class="features">
+    <div class="card">⚡ <b>Fast</b><br>Lazy Loading Images</div>
+    <div class="card">📱 <b>Responsive</b><br>Mobile + Desktop</div>
+    <div class="card">💾 <b>LocalStorage</b><br>Cart Saved</div>
+    <div class="card">🌐 <b>Compatible</b><br>All Browsers</div>
+  </div>
+  <h3>Pragya Gupta | Web Developer Intern | Agra, India</h3>
+</section>
+
+<section id="contact" class="contact">
+  <h2>Contact Us</h2>
+  <form onsubmit="sendContact(event)">
+    <input type="text" id="cName" placeholder="Your Name" required>
+    <input type="email" id="cEmail" placeholder="Your Email" required>
+    <textarea id="cMsg" placeholder="Your Message" required></textarea>
+    <button class="btn" type="submit">Send Message</button>
+    <p id="contactMsg" class="success"></p>
+  </form>
+</section>
+
+<footer><p>© 2026 ShopKart by Pragya Gupta | ApexPlanet Task 5</p></footer>
+<script src="script.js"></script>
+</body>
+</html>
